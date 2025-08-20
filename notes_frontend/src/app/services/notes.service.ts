@@ -59,8 +59,9 @@ export class NotesService {
   private persist(): void {
     try {
       const g: any = typeof globalThis !== 'undefined' ? globalThis : {};
-      const storage = g && g.localStorage ? (g.localStorage as Storage) : null;
-      if (storage) {
+      // Avoid referencing DOM Storage type directly to keep SSR/linter happy
+      const storage: any = g && (g as any).localStorage ? (g as any).localStorage : null;
+      if (storage && typeof storage.setItem === 'function') {
         storage.setItem('notes_data_v1', JSON.stringify(this._notes()));
       }
     } catch {
