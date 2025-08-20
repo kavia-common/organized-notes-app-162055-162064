@@ -1,59 +1,48 @@
-# Angular
+# Organized Notes - Angular Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+A modern, minimalistic notes app built with Angular 19. Features:
+- Create, edit, delete notes
+- Organize by category and tags
+- Search across title/content/category/tags
+- Responsive UI with top navbar, sidebar, and right-side editor drawer
+- Light theme using Primary #1976d2, Accent #ffd600, Secondary #424242
 
 ## Development server
 
-To start a local development server, run:
+Install dependencies and start:
 
 ```bash
-ng serve
+npm i
+npm start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open `http://localhost:3000/` (port configured in angular.json).
 
-## Code scaffolding
+## Usage
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- New Note: Use "+ New Note" button in the top bar.
+- Filter by Category/Tag: Use the left sidebar; "Clear filters" resets.
+- Search: Use the search field in the top bar.
+- Edit: Click a note to open the editor drawer; Save/Close/Delete actions available.
+
+Notes are stored locally in your browser (localStorage). No backend required.
+
+## Build
 
 ```bash
-ng generate component component-name
+npm run build
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Artifacts will be in `dist/angular`.
+
+## Tests
 
 ```bash
-ng generate --help
+npm test
 ```
 
-## Building
+## Tech
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Angular 19 Standalone APIs
+- Signals for state and computed filters
+- LocalStorage persistence
