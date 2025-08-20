@@ -1,0 +1,44 @@
+<div class="layout">
+  <app-topbar
+    [title]="title"
+    [search]="search()"
+    (searchChange)="search.set($event)"
+    (create)="onCreate()"
+  ></app-topbar>
+
+  <div class="content">
+    <app-sidebar
+      class="side"
+      [categories]="categories()"
+      [tags]="tags()"
+      [activeCategory]="activeCategory()"
+      [activeTag]="activeTag()"
+      (categoryChange)="setCategory($event)"
+      (tagChange)="setTag($event)"
+    ></app-sidebar>
+
+    <div class="main">
+      <div class="list-header">
+        <div class="title">Notes</div>
+        <div class="count">{{ filtered().length }} items</div>
+      </div>
+      <app-notes-list
+        [notes]="filtered()"
+        [activeId]="selected?.id ?? null"
+        (select)="onSelect($event)"
+      ></app-notes-list>
+    </div>
+
+    <div class="drawer" [class.open]="editorOpen()">
+      <app-note-editor
+        *ngIf="editorOpen()"
+        [note]="selected"
+        [allCategories]="categories()"
+        [allTags]="tags()"
+        (save)="onSaveNote($event)"
+        (cancel)="onCloseEditor()"
+        (remove)="onDeleteNote()"
+      ></app-note-editor>
+    </div>
+  </div>
+</div>

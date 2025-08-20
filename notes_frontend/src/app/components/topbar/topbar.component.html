@@ -1,0 +1,22 @@
+<header class="topbar">
+  <div class="left">
+    <span class="brand">📝 {{ title }}</span>
+  </div>
+
+  <div class="search-wrap" [class.focused]="focused()">
+    <input
+      class="search-input"
+      type="search"
+      placeholder="Search notes..."
+      [value]="search"
+      (focus)="focused.set(true)"
+      (blur)="focused.set(false)"
+      (input)="onSearchChange($event)"
+      aria-label="Search notes"
+    />
+  </div>
+
+  <div class="actions">
+    <button class="btn primary" (click)="create.emit()" aria-label="Create new note">+ New Note</button>
+  </div>
+</header>

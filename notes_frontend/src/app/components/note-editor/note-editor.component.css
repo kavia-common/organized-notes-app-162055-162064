@@ -1,0 +1,92 @@
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
+
+.row.header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.title-input {
+  border: none;
+  border-bottom: 2px solid var(--border);
+  font-size: 20px;
+  padding: 8px 4px;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+}
+.title-input:focus {
+  border-bottom-color: var(--accent);
+  box-shadow: 0 2px 0 0 var(--accent);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 8px;
+  align-items: center;
+}
+.label {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.input {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  outline: none;
+  background: var(--panel);
+  color: var(--text);
+}
+.input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--focus);
+}
+
+.content {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  outline: none;
+  min-height: 200px;
+  resize: vertical;
+  background: var(--panel);
+  color: var(--text);
+}
+.content:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--focus);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+.btn {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text);
+}
+.btn.primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border-color: var(--accent);
+}
+.btn.danger {
+  background: #ffffff;
+  color: #000000;
+  border-color: var(--border-strong);
+}
+.btn:hover {
+  box-shadow: var(--shadow);
+}

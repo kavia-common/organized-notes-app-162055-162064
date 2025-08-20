@@ -1,0 +1,51 @@
+<aside class="sidebar">
+  <div class="section">
+    <div class="section-title">Categories</div>
+    <button
+      class="chip"
+      [class.active]="activeCategory===null"
+      (click)="categoryChange.emit(null)"
+      aria-label="All categories"
+    >
+      All
+    </button>
+    <div class="chips">
+      <button
+        class="chip"
+        *ngFor="let c of categories"
+        [class.active]="c===activeCategory"
+        (click)="categoryChange.emit(c)"
+        [attr.aria-label]="'Category ' + c"
+      >
+        {{ c }}
+      </button>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Tags</div>
+    <button
+      class="chip"
+      [class.active]="activeTag===null"
+      (click)="tagChange.emit(null)"
+      aria-label="All tags"
+    >
+      All
+    </button>
+    <div class="chips">
+      <button
+        class="chip"
+        *ngFor="let t of tags"
+        [class.active]="t===activeTag"
+        (click)="tagChange.emit(t)"
+        [attr.aria-label]="'Tag ' + t"
+      >
+        #{{ t }}
+      </button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <button class="link" (click)="clearFilters()" aria-label="Clear filters">Clear filters</button>
+  </div>
+</aside>

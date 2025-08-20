@@ -1,0 +1,50 @@
+<div class="editor">
+  <div class="row header">
+    <input
+      class="title-input"
+      [(ngModel)]="title"
+      placeholder="Title"
+      aria-label="Note title"
+    />
+    <div class="actions">
+      <button class="btn danger" (click)="remove.emit()" *ngIf="note">Delete</button>
+      <button class="btn" (click)="cancel.emit()">Close</button>
+      <button class="btn primary" (click)="onSave()">Save</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <label class="label">Category</label>
+    <input
+      class="input"
+      list="category-list"
+      [(ngModel)]="category"
+      placeholder="e.g., Work"
+      aria-label="Category"
+    />
+    <datalist id="category-list">
+      <option *ngFor="let c of allCategories" [value]="c"></option>
+    </datalist>
+  </div>
+
+  <div class="row">
+    <label class="label">Tags</label>
+    <input
+      class="input"
+      [(ngModel)]="tagsText"
+      placeholder="Comma separated, e.g., urgent, idea"
+      aria-label="Tags"
+      list="tag-list"
+    />
+    <datalist id="tag-list">
+      <option *ngFor="let t of allTags" [value]="t"></option>
+    </datalist>
+  </div>
+
+  <textarea
+    class="content"
+    [(ngModel)]="content"
+    placeholder="Write your note here..."
+    aria-label="Note content"
+  ></textarea>
+</div>

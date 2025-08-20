@@ -1,0 +1,22 @@
+<section class="list">
+  <div
+    *ngFor="let n of sorted(); trackBy: trackById"
+    class="item"
+    [class.active]="n.id===activeId"
+    (click)="onSelect(n)"
+    [attr.aria-label]="'Open note ' + n.title"
+  >
+    <div class="title">{{ n.title || 'Untitled' }}</div>
+    <div class="meta">
+      <span class="category" *ngIf="n.category">{{ n.category }}</span>
+      <span class="dot" *ngIf="n.category && (n.tags?.length || 0) > 0">•</span>
+      <span class="tags" *ngIf="(n.tags?.length || 0) > 0">
+        <ng-container *ngFor="let t of n.tags; let last = last">
+          #{{ t }}<span *ngIf="!last">, </span>
+        </ng-container>
+      </span>
+    </div>
+    <div class="preview">{{ n.content | slice:0:120 }}</div>
+    <div class="updated">Updated {{ n.updatedAt | date:'short' }}</div>
+  </div>
+</section>

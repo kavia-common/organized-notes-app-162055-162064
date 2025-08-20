@@ -1,0 +1,56 @@
+.topbar {
+  height: 56px;
+  background: #000; /* primary black */
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr minmax(200px, 600px) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.search-wrap {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 6px 10px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.search-wrap.focused {
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.25);
+}
+.search-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+}
+
+.actions .btn {
+  border: 1px solid #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #fff;
+  color: #000;
+}
+.actions .btn.primary {
+  background: #fff; /* white button on black topbar */
+  color: #000;
+  border-color: #fff;
+}
+.actions .btn.primary:hover {
+  filter: brightness(0.92);
+}
